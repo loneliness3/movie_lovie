@@ -1,0 +1,79 @@
+<app-navbar></app-navbar>
+<div class="flex flex-col bg-gradient-to-b to-indigo-800 via-purple-600 via-orange-500 from-pink-500  select-none ">
+    <div
+        class="text-3xl text-center p-10 mb-10 font-mono font-bold bg-gradient-to-b from-gray-800 to-transparent text-drop-shadow-lg">
+        When you are alone, movies are your friends
+    </div>
+    <div class="mb-20">
+        <div id="1"
+            class="mx-10 mb-1 px-5 pt-2 pb-2 w-[300px] text-2xl sm:text-3xl sm:w-[400px] font-bold text-neutral-200 bg-gradient-to-b from-black/[.5] to-white/[.4] rounded-tr-[100px] rounded-tl-3xl">
+            Popular Movies</div>
+        <div
+            class="snap-x flex flex-nowrap px-10 mx-10 py-10 items-top overflow-x-auto h-[460px] rounded-tr-3xl bg-gradient-to-b to-black/[.2] from-white/[.4]">
+            <button  class="snap-start flex-shrink-0 w-[200px] h-[300px] px-4 hover:animate-pulse hover-border-2"
+                [routerLink]='["/overview/", movie.id]'
+                *ngFor="let movie of popular">
+                <img class="rounded-xl hover-border-2"   src="{{prefixImgurl+movie.poster_path}}" alt="Img">
+                <div class="ml-2">
+                    <div class="text-[18px]">{{movie.title}}</div>
+                    <div class="text-yellow-400">{{movie.release_date}}</div>
+                </div>
+            </button>
+        </div>
+    </div>
+
+    <div class="mb-20">
+        <div id="2"
+            class="mx-10 mb-1 px-5 pt-2 pb-2 w-[300px] text-2xl sm:text-3xl sm:w-[400px] font-bold text-neutral-200 bg-gradient-to-b from-black/[.5] to-white/[.4] rounded-tr-[100px] rounded-tl-3xl">
+            Top-rated Movies</div>
+        <div
+            class="snap-x flex flex-nowrap px-10 mx-10 py-10 items-top overflow-x-auto h-[460px] rounded-tr-3xl bg-gradient-to-b to-black/[.2] from-white/[.4]">
+            <div class="snap-start flex-shrink-0 w-[200px] h-[300px] px-4 hover:animate-pulse "   
+                [routerLink]='["/overview/", movie.id]'             
+                *ngFor="let movie of top_rated">
+                <img class="rounded-xl" src="{{prefixImgurl+movie.poster_path}}" alt="Img">
+                <div class="ml-2">
+                    <div class="text-[18px]">{{movie.title}}</div>
+                    <div class="text-yellow-400">{{movie.release_date}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="mb-20">
+        <div id="3"
+            class="mx-10 mb-1 px-5 pt-2 pb-2 w-[300px] text-2xl sm:text-3xl sm:w-[400px] font-bold text-neutral-200 bg-gradient-to-b from-black/[.5] to-white/[.4] rounded-tr-[100px] rounded-tl-3xl">
+            Now-playing Movies</div>
+        <div
+            class="snap-x flex flex-nowrap px-10 mx-10 py-10 items-top overflow-x-auto h-[460px] rounded-tr-3xl bg-gradient-to-b to-black/[.2] from-white/[.4]">
+            <button  class="snap-start flex-shrink-0 w-[200px] h-[300px] px-4 hover:animate-pulse "
+                [routerLink]="['overview/',movie.id]"
+                *ngFor="let movie of now_playing">
+                <div *ngIf="isUserLoggedIn" [routerLink]='["/overview/", movie.id]'></div>
+                <img class="rounded-xl" src="{{prefixImgurl+movie.poster_path}}" alt="Img">
+                <div class="ml-2">
+                    <div class="text-[18px]">{{movie.title}}</div>
+                    <div class="text-yellow-400">{{movie.release_date}}</div>
+                </div>
+            </button>
+        </div>
+    </div>
+
+    <div class="mb-20">
+        <div id="4"
+            class="mx-10 mb-1 px-5 pt-2 pb-2 w-[300px] text-2xl sm:text-3xl sm:w-[400px] font-bold text-neutral-200 bg-gradient-to-b from-black/[.5] to-white/[.4] rounded-tr-[100px] rounded-tl-3xl">
+            Upcoming Movies</div>
+        <div
+            class="snap-x flex flex-nowrap px-10 mx-10 py-10 items-top overflow-x-auto h-[460px] rounded-tr-3xl bg-gradient-to-b to-black/[.2] from-white/[.4]">
+            <a  class="snap-start flex-shrink-0 w-[200px] h-[300px] px-4 hover:animate-pulse "
+                 [routerLink]='["/overview/", movie.id]'
+                *ngFor="let movie of upcoming">
+                <img class="rounded-xl" src="{{prefixImgurl+movie.poster_path}}" alt="Img">
+                <div class="ml-2">
+                    <div class="text-[18px]">{{movie.title}}</div>
+                    <div class="text-yellow-400">{{movie.release_date}}</div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,51 @@
+<div class="bg-gradient-to-b to-indigo-800 via-purple-600 from-pink-500 w-auto h-auto select-none">
+    <app-navbar></app-navbar>
+    <div *ngIf="errorText" class="h-[calc(100vh-80px)] flex items-center justify-center text-[400px] z-10">{{errorText}}</div>
+    <div *ngIf="overviewMovie !== null && overviewMovie !== undefined">        
+        <div class="relative flex flex-col items-center h-[80%]" >
+            <!-- <div
+                class="z-30 absolute top-0 h-[10%] w-auto bg-gradient-to-b from-gray-800 to-transparent text-drop-shadow-lg">
+            </div> -->
+            <img class="w-[80%] h-[60%] opacity-60 object-cover object-top"
+                src="{{originalImgurl+overviewMovie.backdrop_path}}">
+            <div class="absolute top-[20px] w-[80%] z-10">
+                <div class="flex flex-row gap-14 px-20 pt-5">
+                    <div class="relative z-10 pt-4 items-center">
+                        <img class="h-[500px] w-[350px] rounded-tl-3xl rounded-bl-3xl border-4" src="{{prefixImgurl+overviewMovie.poster_path}}" alt="">
+                        <div class="absolute right-[4px] bottom-[4px] h-[25px] w-[200px] text-center bg-blue-400 opacity-[.7]">
+                            {{'Runtime: '+overviewMovie.runtime}}
+                        </div>
+                    </div>
+                    <div class="flex flex-col w-[60%] h-[500px] z-10 gap-8">
+                        <div class="pt-5 text-[50px] font-black font-mono text-white leading-10 h-30 text-clip">
+                            {{overviewMovie.title}}
+                        </div>
+                        <hr class="w-[108%] -ml-[4%]">
+                        <div class="absoulte mt-2 w-full h-[300px] text-2xl text-white z-10 overflow-y-scroll leading-10">
+                            <div>
+                                {{'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'+overviewMovie.overview+'...🤣🤣🤣'}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+        </div>
+        <div class="bg-gradient-to-t from-indigo-900 to-gray-200 opacity-[.5] h-[20%] rounded-tl-[50px] rounded-tr-[50px]">
+            <div class="flex flex-row px-[10%] gap-[5%] contents-center">
+                <div class="p-5 text-xl font-bold w-[30%] h-[150px] border-2">
+                    <div class="text-2xl">Tag:</div>
+                    '{{overviewMovie.tagline}}'
+                </div>
+                <div class="p-5 text-xl font-bold w-[30%] h-[150px] border-2">
+                    <div class="text-2xl">Release Date:</div>
+                    {{overviewMovie.release_date}}
+                </div>
+                <div class="p-5 text-xl font-bold w-[30%] h-[150px] border-2">
+                    <div class="text-2xl">Popularity:</div>
+                    {{overviewMovie.popularity}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
