@@ -19,6 +19,7 @@ export class PreviewComponent implements OnInit, OnDestroy{
   loading = true;
   errorText: string = ''
   private subs = new SubSink();
+  date?: string;
 
   ngOnInit(): void {
     this.router.paramMap.subscribe((param) => {
@@ -44,5 +45,7 @@ export class PreviewComponent implements OnInit, OnDestroy{
   })
   }
   
-  
+  format(){
+    
+  }
 }

@@ -12,6 +12,7 @@ export class NavbarComponent implements OnInit {
   isUserLoggedIn = false;
   storeData:any; 
   menuOpen = false;
+  catMenuOpen = false;
 
   constructor(
     private sService: MovieapiService, private router: Router){}  
@@ -30,9 +31,16 @@ export class NavbarComponent implements OnInit {
 
    logOut(){
     this.sService.logout()
+    this.router.navigate(['/home'])
    }
 
    activateMenu():void {
+    this.catMenuOpen = false
     this.menuOpen = !this.menuOpen
+   }
+
+   activateCatMenu():void {
+    this.menuOpen = false
+    this.catMenuOpen = !this.catMenuOpen
    }
 }

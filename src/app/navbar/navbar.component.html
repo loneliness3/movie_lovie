@@ -7,17 +7,17 @@
     </a>
 
     <div class="w-full block flex-grow:end lg:flex lg:items-center lg:w-auto self-auto">
-        <div class="text-sm lg:flex-grow">
+        <!-- <div class="text-sm lg:flex-grow">
             <label for="categories"
                 class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white focus:text-2xl focus:font-bold mr-4 focus:text-white text-xl">
                 Categories
             </label>
             <select name="categories" id="" class="bg-gray-600 mr-5 block lg:inline-block lg:mt-0 text-white">
                 <option value="Popular">
-                    <a href="#1">Popular</a>
+                    <a href="../home/home.component.html/#1">Popular</a>
                 </option>
-                <option value="Top-rated">
-                    <a href="#2">Top-rated</a>
+                <option value="Top-rated" routerLink="/home">
+                    <a routerLink="/home">Top-rated</a>
                 </option>
                 <option value="Now-playing">
                     <a href="#3">Now-playing</a>
@@ -26,9 +26,27 @@
                     <a href="#4">Upcoming</a>
                 </option>
             </select>
-        </div>
+        </div> -->
+
+        <button *ngIf="isUserLoggedIn"
+                (click)="activateCatMenu()"        
+                class="p-5 block mt-4 lg:mt-0 text-teal-200 hover:text-white hover:pb-7 focus:font-bold focus:text-white text-xl">
+                Categories
+        </button>
+        <div class="relative inline-block text-left"
+            [ngClass]="{'hidden': !catMenuOpen}">          
+            <div class="absolute right-0 z-10 mt-8 w-56 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
+              <div class="py-1" role="none">
+                <a routerLink="/home" fragment="1" class="text-gray-700 block px-4 py-2 text-sm" (click)="activateCatMenu()">Popular</a>
+                <a routerLink="/home" fragment="2" class="text-gray-700 block px-4 py-2 text-sm" (click)="activateCatMenu()">Top-rated</a>
+                <a routerLink="/home" fragment="3" class="text-gray-700 block px-4 py-2 text-sm" (click)="activateCatMenu()">Now-playing</a>
+                <a routerLink="/home" fragment="4" class="text-gray-700 block px-4 py-2 text-sm" (click)="activateCatMenu()">Upcoming</a>
+              </div>              
+            </div>
+          </div>
+
         <div>
-            <button *ngIf="!isUserLoggedIn" href=""
+            <button *ngIf="!isUserLoggedIn" href="" routerLink="/signup"
                 class="p-5 block mt-4 lg:mt-0 text-teal-200 hover:text-white hover:pb-7 focus:font-bold focus:text-white text-xl">
                 Create Account
             </button>
@@ -54,6 +72,7 @@
               <div class="py-1" role="none">
                 <button 
                 (click)="logOut()"
+                routerLink="/home"
                 class="text-gray-700 block px-4 py-2 text-sm">Logout</button>
               </div>
             </div>

@@ -10,6 +10,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { LogInComponent } from './log-in/log-in.component'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PiperPipe } from './pipe/piper.pipe';
+import { SignUpComponent } from './sign-up/sign-up.component';
 
 @NgModule({
   declarations: [
@@ -19,13 +20,14 @@ import { PiperPipe } from './pipe/piper.pipe';
     NavbarComponent,
     LogInComponent,
     PiperPipe,
+    SignUpComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

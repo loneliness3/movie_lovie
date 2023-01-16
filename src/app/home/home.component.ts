@@ -73,10 +73,12 @@ export class HomeComponent implements OnInit, OnDestroy {
       }
     })   
   }
-  check(){
+  check(id: number | undefined){
     console.log('-----------------------------')
-    if(!localStorage.getItem("isUserLoggedIn")){
-      alert('You need to log in first')
+    if(localStorage.getItem("isUserLoggedIn")== 'false' || !localStorage.getItem("isUserLoggedIn")){
+      alert('Firstly, you need to log in to see movie overview')
+    }else{
+      this.gotoDetail(id!)
     }
   }
 

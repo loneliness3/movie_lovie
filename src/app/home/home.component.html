@@ -11,7 +11,7 @@
         <div
             class="snap-x flex flex-nowrap px-10 mx-10 py-10 items-top overflow-x-auto h-[460px] rounded-tr-3xl bg-gradient-to-b to-black/[.2] from-white/[.4]">
             <button  class="snap-start flex-shrink-0 w-[200px] h-[300px] px-4 hover:animate-pulse hover-border-2"
-                [routerLink]='["/overview/", movie.id]'
+            (click)="check(movie.id)"
                 *ngFor="let movie of popular">
                 <img class="rounded-xl hover-border-2"   src="{{prefixImgurl+movie.poster_path}}" alt="Img">
                 <div class="ml-2">
@@ -29,7 +29,7 @@
         <div
             class="snap-x flex flex-nowrap px-10 mx-10 py-10 items-top overflow-x-auto h-[460px] rounded-tr-3xl bg-gradient-to-b to-black/[.2] from-white/[.4]">
             <div class="snap-start flex-shrink-0 w-[200px] h-[300px] px-4 hover:animate-pulse "   
-                [routerLink]='["/overview/", movie.id]'             
+                (click)="check(movie.id)"             
                 *ngFor="let movie of top_rated">
                 <img class="rounded-xl" src="{{prefixImgurl+movie.poster_path}}" alt="Img">
                 <div class="ml-2">
@@ -47,7 +47,7 @@
         <div
             class="snap-x flex flex-nowrap px-10 mx-10 py-10 items-top overflow-x-auto h-[460px] rounded-tr-3xl bg-gradient-to-b to-black/[.2] from-white/[.4]">
             <button  class="snap-start flex-shrink-0 w-[200px] h-[300px] px-4 hover:animate-pulse "
-                [routerLink]="['overview/',movie.id]"
+                (click)="check(movie.id)"  
                 *ngFor="let movie of now_playing">
                 <div *ngIf="isUserLoggedIn" [routerLink]='["/overview/", movie.id]'></div>
                 <img class="rounded-xl" src="{{prefixImgurl+movie.poster_path}}" alt="Img">
@@ -65,15 +65,15 @@
             Upcoming Movies</div>
         <div
             class="snap-x flex flex-nowrap px-10 mx-10 py-10 items-top overflow-x-auto h-[460px] rounded-tr-3xl bg-gradient-to-b to-black/[.2] from-white/[.4]">
-            <a  class="snap-start flex-shrink-0 w-[200px] h-[300px] px-4 hover:animate-pulse "
-                 [routerLink]='["/overview/", movie.id]'
+            <button  class="snap-start flex-shrink-0 w-[200px] h-[300px] px-4 hover:animate-pulse "
+                 (click)="check(movie.id)"
                 *ngFor="let movie of upcoming">
                 <img class="rounded-xl" src="{{prefixImgurl+movie.poster_path}}" alt="Img">
                 <div class="ml-2">
                     <div class="text-[18px]">{{movie.title}}</div>
                     <div class="text-yellow-400">{{movie.release_date}}</div>
                 </div>
-            </a>
+            </button>
         </div>
     </div>
 </div>
